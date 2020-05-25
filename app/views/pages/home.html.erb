@@ -1,3 +1,12 @@
-<a href="/about">
-    <h1>All Bout Old Unorthodox Trains</h1>
-</a>
+<%= link_to "/about", :action => 'go' do %>
+  <h1>ABOUT</h1>
+<% end %>
+<%= link_to "/articles/1", :action => 'go' do %>
+  <h1>Article 1</h1>
+<% end %>
+<% @article = Article.all %>
+<% @article.each do |article| %>
+  <tr>
+    <%= link_to  article.title, article_path(article) %>
+  </tr>
+<% end %>
