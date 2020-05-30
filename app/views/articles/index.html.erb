@@ -12,8 +12,9 @@
       <tr>
         <td><%= article.title %></td>
         <td><%= article.description %></td>
-        <td>
-        <%= button_to "Delete Article", {action: 'destroy', id: article.id}, method: :delete, data: {confirm: "are you sure?"}%>
+        <td class=actiontab>
+        <%= button_to "Show Article", article_path(article.id), method: :get %>
+        <%= button_to "Delete Article", article_path(article.id), method: :delete, data: {confirm: "Are you sure?"}%>
         <%= button_to "Edit Article", edit_article_path(article.id), method: :get %>
         </td>
       </tr>

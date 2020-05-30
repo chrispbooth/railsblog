@@ -17,4 +17,11 @@
 display: inline-block;
 text-decoration: none;
 color: black;
+border: 1px solid black;
+padding: 1rem;
+border-radius: 15px;
+}
+
+.actiontab{
+    display: flex;
 }
