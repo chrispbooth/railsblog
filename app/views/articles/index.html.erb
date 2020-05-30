@@ -8,12 +8,20 @@
     </tr>
   </thead>
   <tbody>
-  <% @articles.each do |article| %>
-    <tr>
-      <td><%= article.title %></td>
-      <td><%= article.description %></td>
-      <td>NA</td>
-    </tr>
+    <% @articles.each do |article| %>
+      <tr>
+        <td><%= article.title %></td>
+        <td><%= article.description %></td>
+        <td>
+        <%= button_to "Delete Article", {action: 'destroy', id: article.id}, method: :delete, data: {confirm: "are you sure?"}%>
+        <%= button_to "Edit Article", edit_article_path(article.id), method: :get %>
+        </td>
+      </tr>
     <% end %>
   </tbody>
 </table>
+<div>
+  <%= link_to new_article_path, :action => 'go' do %>
+    <h1 class='linkbox'>Create New Article</h1>
+  <% end %>
+</div>

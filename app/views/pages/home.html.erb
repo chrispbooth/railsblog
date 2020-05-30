@@ -1,8 +1,8 @@
 <%= link_to "/about", :action => 'go' do %>
   <h1>ABOUT</h1>
 <% end %>
-<%= link_to "/articles/1", :action => 'go' do %>
-  <h1>Article 1</h1>
+<%= link_to articles_path, :action => 'go' do %>
+  <h1>Articles index</h1>
 <% end %>
 <% @article = Article.all %>
 <% @article.each do |article| %>
