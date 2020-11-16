@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
 class ArticlesController < ApplicationController
+  before_action :set_article, only: [:show, :edit, :update, :destroy]
+
   def show
-    @article = Article.find(params[:id])
+    
   end
   def index
     @articles=Article.all
@@ -25,15 +27,15 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    Article.find(params[:id]).delete
+    @article.delete
     redirect_to articles_path
   end
 
   def edit
-    @article = Article.find(params[:id])
+    
   end
   def update
-    @article = Article.find(params[:id])
+    
     @article.update(article_params)
     if @article.save
       flash[:notice] = 'Article was Updated Successfully.'
@@ -52,4 +54,8 @@ class ArticlesController < ApplicationController
   def article_params
     params.require(:article).permit(:title, :description)
   end
+  def set_article
+    @article = Article.find(params[:id])
+  end
+
 end
